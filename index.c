@@ -24,11 +24,11 @@ void add_entry()
 	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
 
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
-	printf("\nStart Writting...");
+	g_print("\nStart Writting...");
 	// Just Storing Time and a line break as default for every file ------>
 	char Date_Time[50];
 	sprintf(Date_Time, "\n%s\n@%s\nDear Diary,", DD_Str, TT_Str);
-	printf("\n%s\n", Date_Time);
+	g_print("\n%s\n", Date_Time);
 	text[0] = malloc(10 * sizeof(char));
 	text[0] = Date_Time;
 	text[1] = malloc(2 * sizeof(char));
@@ -95,16 +95,16 @@ void open_Diary(void)
 // Displaying Help Menu
 void help_menu()
 {
-	printf("\n\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
-	printf("\nUsage :\n\t main <command>\n");
-	printf("\nAvailable Commands : \n");
-	printf("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n");
+	g_print("\n\nDear-Diary GUI is a Simple & Elegant Diary Writting Software that provides an easy to use Interface.\nYou can support the development by forking the Github repository at 'https://github.com/mrmrashu/Dear-Diary-GUI'\n");
+	g_print("\nYou can also launch GUI by using direct CLI-commands :\n\t main <command>\n");
+	g_print("\nAvailable Commands : \n");
+	g_print("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n");
 }
 
 // Handling invalid arguments
 void invalid_args()
 {
-	printf("Invalid Argument(s), Please use '-h' for more information\n");
+	g_print("Invalid Argument(s), Please use '-h' for more information\n");
 }
 
 
@@ -134,8 +134,7 @@ static void load_css (void)
 
 
 static void 
-	print_hello (GtkWidget *widget,
-				gpointer data)
+	print_hello ()
 	{
 		g_print("Button Clicked!\n");
 	}
@@ -171,20 +170,27 @@ static void
 		gtk_container_add (GTK_CONTAINER (window), grid);
 		
 		new_button = gtk_button_new_with_label ("New Entry");
-		g_signal_connect (new_button, "clicked", G_CALLBACK (print_hello), NULL);
+		gtk_grid_attach (GTK_GRID (grid), new_button, 0, 0, 1, 1);
+		// g_signal_connect (new_button, "clicked", G_CALLBACK (add_entry), NULL);
 
+		open_button = gtk_button_new_with_label ("Open Entry");
+		gtk_grid_attach(GTK_GRID(grid), open_button, 1,0,1,1);	
+
+		help_button = gtk_button_new_with_label ("Help Menu");
+		gtk_grid_attach(GTK_GRID(grid), help_button, 2,0,1,1);
+
+		g_signal_connect(help_button, "clicked", G_CALLBACK(help_menu), NULL);
 		/*
 			Place the first button in the grid cell (0, 0), and make it fill
 			just one cell horizontally and vertically (ie no spanning)
 		*/
-		gtk_grid_attach (GTK_GRID (grid), new_button, 0, 0, 1, 1);
 
 		ntextview = gtk_text_view_new();
 		nbuffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW (ntextview));
 
 		gtk_text_buffer_set_text (nbuffer, "Dear Diary", -1);
 
-		gtk_grid_attach(GTK_GRID (grid), ntextview, 0,1,5,1);
+		gtk_grid_attach(GTK_GRID (grid), ntextview, 0,4,4,1);
 		// gtk_widget_set_name(ntextview, "workOnFocus");
 
 		/*entry = gtk_entry_new ();
