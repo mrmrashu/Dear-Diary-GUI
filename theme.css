@@ -1,8 +1,11 @@
 window {
 	background-color: #f2eff6;
 }
-.workonfocus {
-	border: Solid 2px rgba(0, 0, 0, 1.0);
+window > grid > textview {
+	font-size: 14px;
+	border-width: 2px;
+	border-style: Solid;
+	border-color: red;
 }
 window > grid > button {
 	margin: 10px;

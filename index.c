@@ -144,13 +144,13 @@ static void
 	activate ( GtkApplication *app,
 				gpointer user_data)
 	{
-		GtkWidget 
-		*window, 
+		GtkWidget
+		*window,
 		*grid, 
 		*new_button,
 		*help_button,
 		*open_button,
-		*ntextview, 
+		*ntextview,
 		*entry;
 
 		GtkTextBuffer *nbuffer;
@@ -182,10 +182,10 @@ static void
 		ntextview = gtk_text_view_new();
 		nbuffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW (ntextview));
 
-		gtk_text_buffer_set_text (nbuffer, "Dear Diary", 0);
+		gtk_text_buffer_set_text (nbuffer, "Dear Diary", -1);
 
-		gtk_grid_attach (GTK_GRID (grid), ntextview, 1,1,1,1);
-		gtk_widget_set_name(ntextview, "workOnFocus");
+		gtk_grid_attach(GTK_GRID (grid), ntextview, 0,1,5,1);
+		// gtk_widget_set_name(ntextview, "workOnFocus");
 
 		/*entry = gtk_entry_new ();
 		gtk_grid_attach (GTK_GRID (grid), entry, 0, 1, 2, 1);
@@ -197,7 +197,6 @@ static void
 
 int main(int argc, char ** argv)
 {
-
 	printf("starting...\n");
 	GtkApplication *app;
 	int ret;
