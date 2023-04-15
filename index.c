@@ -12,8 +12,6 @@
 #include "TimeString.h" // To Get the Current Time for Diary in a String
 
 
-
-
 // Core Diary Functions ---------------------------
 
 
@@ -151,8 +149,11 @@ static void
 		*grid, 
 		*new_button,
 		*help_button,
-		*open_button, 
+		*open_button,
+		*ntextview, 
 		*entry;
+
+		GtkTextBuffer *nbuffer;
 
 		gtk_init(NULL, NULL);
 		load_css();
@@ -177,6 +178,14 @@ static void
 			just one cell horizontally and vertically (ie no spanning)
 		*/
 		gtk_grid_attach (GTK_GRID (grid), new_button, 0, 0, 1, 1);
+
+		ntextview = gtk_text_view_new();
+		nbuffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW (ntextview));
+
+		gtk_text_buffer_set_text (nbuffer, "Dear Diary", 0);
+
+		gtk_grid_attach (GTK_GRID (grid), ntextview, 1,1,1,1);
+		gtk_widget_set_name(ntextview, "workOnFocus");
 
 		/*entry = gtk_entry_new ();
 		gtk_grid_attach (GTK_GRID (grid), entry, 0, 1, 2, 1);

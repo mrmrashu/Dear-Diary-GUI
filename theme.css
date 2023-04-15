@@ -1,7 +1,9 @@
 window {
 	background-color: #f2eff6;
 }
-
+.workonfocus {
+	border: Solid 2px rgba(0, 0, 0, 1.0);
+}
 window > grid > button {
 	margin: 10px;
 	background: #06c;
