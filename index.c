@@ -95,10 +95,12 @@ void open_Diary(void)
 // Displaying Help Menu
 void help_menu()
 {
+	g_print("\n-----------------------------------------\n");
 	g_print("\n\nDear-Diary GUI is a Simple & Elegant Diary Writting Software that provides an easy to use Interface.\nYou can support the development by forking the Github repository at 'https://github.com/mrmrashu/Dear-Diary-GUI'\n");
 	g_print("\nYou can also launch GUI by using direct CLI commands :\n\t main <command>\n");
 	g_print("\nAvailable Commands : \n");
 	g_print("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n");
+	g_print("\n-----------------------------------------\n");
 }
 
 // Handling invalid arguments
