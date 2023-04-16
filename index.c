@@ -96,7 +96,7 @@ void open_Diary(void)
 void help_menu()
 {
 	g_print("\n\nDear-Diary GUI is a Simple & Elegant Diary Writting Software that provides an easy to use Interface.\nYou can support the development by forking the Github repository at 'https://github.com/mrmrashu/Dear-Diary-GUI'\n");
-	g_print("\nYou can also launch GUI by using direct CLI-commands :\n\t main <command>\n");
+	g_print("\nYou can also launch GUI by using direct CLI commands :\n\t main <command>\n");
 	g_print("\nAvailable Commands : \n");
 	g_print("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n");
 }
@@ -188,7 +188,7 @@ static void
 		ntextview = gtk_text_view_new();
 		nbuffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW (ntextview));
 
-		gtk_text_buffer_set_text (nbuffer, "Dear Diary", -1);
+		gtk_text_buffer_set_text (nbuffer, "Dear Diary,\n", -1);
 
 		gtk_grid_attach(GTK_GRID (grid), ntextview, 0,4,4,1);
 		// gtk_widget_set_name(ntextview, "workOnFocus");
