@@ -150,7 +150,8 @@ static void
 		*help_button,
 		*open_button,
 		*ntextview,
-		*entry;
+		*entry,
+		*label;
 
 		GtkTextBuffer *nbuffer;
 
@@ -170,20 +171,24 @@ static void
 		gtk_container_add (GTK_CONTAINER (window), grid);
 		
 		new_button = gtk_button_new_with_label ("New Entry");
-		gtk_grid_attach (GTK_GRID (grid), new_button, 0, 0, 1, 1);
+		gtk_grid_attach (GTK_GRID (grid), new_button, 0, 1, 1, 1);
 		// g_signal_connect (new_button, "clicked", G_CALLBACK (add_entry), NULL);
 
 		open_button = gtk_button_new_with_label ("Open Entry");
-		gtk_grid_attach(GTK_GRID(grid), open_button, 1,0,1,1);	
+		gtk_grid_attach(GTK_GRID(grid), open_button, 1,1,1,1);	
 
 		help_button = gtk_button_new_with_label ("Help Menu");
-		gtk_grid_attach(GTK_GRID(grid), help_button, 2,0,1,1);
+		gtk_grid_attach(GTK_GRID(grid), help_button, 2,1,1,1);
 
 		g_signal_connect(help_button, "clicked", G_CALLBACK(help_menu), NULL);
 		/*
 			Place the first button in the grid cell (0, 0), and make it fill
 			just one cell horizontally and vertically (ie no spanning)
 		*/
+
+		label = gtk_label_new ("Dear Diary");
+		gtk_grid_attach(GTK_GRID(grid), label, 1,0,1,1);
+		gtk_widget_set_name(label, "title");
 
 		ntextview = gtk_text_view_new();
 		nbuffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW (ntextview));

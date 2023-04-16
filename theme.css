@@ -19,6 +19,11 @@ textview text {
 window > grid > textview text:focus {
 	outline: Solid 10px black;
 }
+window > grid > label {
+	font-family: "Courier Prime", monospace;
+	color: black;
+	font-size: 30px;
+}
 window > grid > button {
 	margin: 10px;
 	background: #06c;
