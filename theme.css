@@ -1,3 +1,6 @@
+window {
+	background: ivory;
+}
 window > grid {
 	background-color: rgb(255,235,214);
 	border-radius: 6px;
@@ -44,8 +47,8 @@ window > grid > button {
 	padding: 0 20px;
 /*	letter-spacing: -0.067em;*/
 	border: Solid 1px rgba(0,0,150,.5);
-	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.6);
-	/*border-radius: 3px;*/
+	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+	border-radius: 3px;
 	transition: none;
 }
 window > grid > button:focus {
