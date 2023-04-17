@@ -176,7 +176,7 @@ static void
 		gtk_grid_attach (GTK_GRID (grid), new_button, 0, 1, 1, 1);
 		// g_signal_connect (new_button, "clicked", G_CALLBACK (add_entry), NULL);
 
-		open_button = gtk_button_new_with_label ("Open Entry");
+		open_button = gtk_button_new_with_label ("Browse Entries");
 		gtk_grid_attach(GTK_GRID(grid), open_button, 1,1,1,1);	
 
 		help_button = gtk_button_new_with_label ("Help Menu");
@@ -214,7 +214,7 @@ int main(int argc, char ** argv)
 	GtkApplication *app;
 	int ret;
 	// Giving the application a unique ID to assosiate with
-	app = gtk_application_new("org.ashu", G_APPLICATION_DEFAULT_FLAGS);
+	app = gtk_application_new("org.ashu", G_APPLICATION_FLAGS_NONE);
 	g_signal_connect (app, "activate", G_CALLBACK(activate), NULL);
 	ret = g_application_run(G_APPLICATION(app), argc, argv);
 
